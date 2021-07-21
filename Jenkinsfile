@@ -17,7 +17,7 @@ if (jobProperties) {
     if(property instanceof org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty ){
       def triggerJobProperty = property as org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty
       triggerJobProperty.getTriggers().each { trigger ->
-        ptrint(trigger)
+        print(trigger)
       }
       //print(property)
       //String xml = Items.XSTREAM2.toXML(property)
