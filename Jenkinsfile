@@ -16,7 +16,7 @@ if (jobProperties) {
     String xml = Items.XSTREAM2.toXML(property)
     def jobPropertiesPropertyNode = new XmlParser().parseText(xml)
     if(jobPropertiesPropertyNode.attributes().get("plugin").startsWith("workflow-job")){
-      println(jobPropertiesPropertyNode.getClass())
+      println(jobPropertiesPropertyNode.children())
     }
   } 
   def Object[] newProperties = Object[]
