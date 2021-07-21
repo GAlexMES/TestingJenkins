@@ -14,7 +14,7 @@ if (currentJob) {
 if (jobProperties) {
   print(jobProperties)
   jobProperties.each { property ->
-    if(property instanceof org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty ))
+    if(property instanceof org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty )
       print(property)
       //String xml = Items.XSTREAM2.toXML(property)
       //def jobPropertiesPropertyNode = new XmlParser().parseText(xml)
