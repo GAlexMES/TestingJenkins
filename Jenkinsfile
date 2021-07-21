@@ -17,7 +17,7 @@ if (jobProperties) {
     if(property instanceof org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty ){
       def triggerJobProperty = property as org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty
       triggerJobProperty.getTriggers().each { trigger ->
-        if(trigger istanceof hudson.triggers.TimerTrigger){
+        if(trigger instanceof hudson.triggers.TimerTrigger){
           def timeTrigger = trigger as hudson.triggers.TimerTrigger
           print(timeTrigger.getSpec())
         }
