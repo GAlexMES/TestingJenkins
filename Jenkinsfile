@@ -3,7 +3,7 @@ import hudson.model.Item
 import hudson.model.Items
 
 def jobProperties
-Item currentJob = Jenkins.instance.getItemByFullName('multi/job/master')
+Item currentJob = Jenkins.instance.getItemByFullName('multi/master')
 if (currentJob) {
   jobProperties = currentJob.@properties
 }
