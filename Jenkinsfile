@@ -12,6 +12,7 @@ if (currentJob) {
 
 
 if (jobProperties) {
+  print(jobProperties)
   jobProperties.each { property ->
     String xml = Items.XSTREAM2.toXML(property)
     def jobPropertiesPropertyNode = new XmlParser().parseText(xml)
@@ -22,10 +23,10 @@ if (jobProperties) {
       print(jobPropertiesPropertyNode)
     }
   } 
-  def Object[] newProperties = Object[]
-  jobProperties.toArray(newProperties)
-  print(newProperties)
-  //properties(newProperties)
+  //def Object[] newProperties = Object[]
+  //jobProperties.toArray(newProperties)
+  //print(newProperties)
+  properties(jobProperties)
 }
 
 //String cron_string = BRANCH_NAME == "master" ? "*/5 * * * *" : ""
