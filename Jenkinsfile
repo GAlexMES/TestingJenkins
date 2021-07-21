@@ -19,7 +19,7 @@ if (jobProperties) {
       def hudson = jobPropertiesPropertyNode.children().get(0).value().get(0)
       def valueArray = hudson.value().get(0).value()
       print(valueArray)
-      valueArray[0] = */10 * * * *
+      valueArray[0] = "*/10 * * * *"
       print(valueArray)
     }
   } 
