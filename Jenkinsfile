@@ -12,7 +12,7 @@ if (currentJob) {
 
 
 if (jobProperties) {
-  print(jobProperties)
+  print(jobProperties instanceof org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty)
   jobProperties.each { property ->
     print(property.getClass())
     String xml = Items.XSTREAM2.toXML(property)
