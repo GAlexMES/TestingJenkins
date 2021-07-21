@@ -15,7 +15,7 @@ if (jobProperties) {
   jobProperties.each { property ->
     String xml = Items.XSTREAM2.toXML(property)
     def jobPropertiesPropertyNode = new XmlParser().parseText(xml)
-    println(jobPropertiesPropertyNode.getClass())
+    println(jobPropertiesPropertyNode.attributes())
   } 
   def Object[] newProperties = Object[]
   jobProperties.toArray(newProperties)
