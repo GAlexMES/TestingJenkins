@@ -23,6 +23,7 @@ withEnv([
           def jobPropertiesPropertyNode = new XmlParser().parseText(xml)
           print(jobPropertiesPropertyNode)
         } 
+        properties(jobProperties)
     }
 
   properties([pipelineTriggers([cron(cron_string)])])
