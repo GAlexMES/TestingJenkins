@@ -13,30 +13,21 @@ if (currentJob) {
 
 if (jobProperties) {
   print(jobProperties)
-  jobProperties.each { property ->
+  def view = jobProperties.getView().stream()
+  .findAll{ !(it instanceof org.jenkinsci.plugins.workflow.multibranch.BranchJobProperty)}
+  view.each { property ->
     if(property instanceof org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty ){
       def triggerJobProperty = property as org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty
-      triggerJobProperty.getTriggers().each { trigger ->
-        if(trigger instanceof hudson.triggers.TimerTrigger){
-          def timeTrigger = trigger as hudson.triggers.TimerTrigger
-          print(timeTrigger.getSpec())
-        }
-        
+      def triggers = triggerJobProperty.getTriggers()
+      triggers.stream.findAll { trigger ->
+        return !(trigger instanceof hudson.triggers.TimerTrigger))
       }
-      //print(property)
-      //String xml = Items.XSTREAM2.toXML(property)
-      //def jobPropertiesPropertyNode = new XmlParser().parseText(xml)
-      //if(jobPropertiesPropertyNode.attributes().get("plugin").startsWith("workflow-job")){
-      //  def hudson = jobPropertiesPropertyNode.children().get(0).value().get(0)
-      //  def valueArray = hudson.value().get(0).value()
-      //  valueArray[0] = "*/10 * * * *"
-      //  print(jobPropertiesPropertyNode)
-      //}
+      def cronTrigger = new hudson.triggers.TimerTrigger("*/10 * * * *")
+      triggers.add(cronTrigger)
     }
   } 
   
-  def view = jobProperties.getView().stream()
-  .findAll{ !(it instanceof org.jenkinsci.plugins.workflow.multibranch.BranchJobProperty)}
+  
   print(view.size())
   //def hudson.model.JobProperty[] newProperties = hudson.model.JobProperty[]
   //jobProperties.toArray(newProperties)
