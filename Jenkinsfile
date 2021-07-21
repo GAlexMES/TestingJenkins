@@ -23,10 +23,10 @@ if (jobProperties) {
       print(jobPropertiesPropertyNode)
     }
   } 
-  //def Object[] newProperties = Object[]
-  //jobProperties.toArray(newProperties)
+  def Object[] newProperties = Object[]
+  jobProperties.toArray(newProperties)
   //print(newProperties)
-  properties(jobProperties)
+  properties(newProperties)
 }
 
 //String cron_string = BRANCH_NAME == "master" ? "*/5 * * * *" : ""
