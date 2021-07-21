@@ -12,16 +12,17 @@ jobProperties = currentJob.@properties
 
 print(jobProperties)
 
-String cron_string = BRANCH_NAME == "master" ? "*/5 * * * *" : ""
-//if (jobProperties) {
-//  jobProperties.each { property ->
-//    String xml = Items.XSTREAM2.toXML(property)
-//    def jobPropertiesPropertyNode = new XmlParser().parseText(xml)
-//    print(jobPropertiesPropertyNode)
-//  } 
-//  properties(jobProperties.getView())
-//}
 
-properties([pipelineTriggers([cron(cron_string)])])
+if (jobProperties) {
+  jobProperties.each { property ->
+    String xml = Items.XSTREAM2.toXML(property)
+    def jobPropertiesPropertyNode = new XmlParser().parseText(xml)
+    print(jobPropertiesPropertyNode)
+  } 
+  properties(jobProperties.getView())
+}
+
+//String cron_string = BRANCH_NAME == "master" ? "*/5 * * * *" : ""
+//properties([pipelineTriggers([cron(cron_string)])])
 print("pipeline running")
 
