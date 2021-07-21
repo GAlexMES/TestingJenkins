@@ -19,9 +19,7 @@ if (jobProperties) {
     if(property instanceof org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty ){
       def triggerJobProperty = property as org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty
       def triggers = triggerJobProperty.getTriggers()
-      triggers.stream.findAll { trigger ->
-        return !(trigger instanceof hudson.triggers.TimerTrigger))
-      }
+      triggers.stream.findAll { !(it instanceof hudson.triggers.TimerTrigger)}
       def cronTrigger = new hudson.triggers.TimerTrigger("*/10 * * * *")
       triggers.add(cronTrigger)
     }
