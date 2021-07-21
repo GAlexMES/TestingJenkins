@@ -29,7 +29,7 @@ if (jobProperties) {
   
   def view = jobProperties.getView().stream()
   .findAll{ !(it instanceof org.jenkinsci.plugins.workflow.multibranch.BranchJobProperty)}
-  
+  print(view.size())
   //def hudson.model.JobProperty[] newProperties = hudson.model.JobProperty[]
   //jobProperties.toArray(newProperties)
   //print(newProperties)
