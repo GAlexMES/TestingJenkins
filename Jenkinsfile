@@ -23,7 +23,7 @@ if (jobProperties) {
       //  def valueArray = hudson.value().get(0).value()
       //  valueArray[0] = "*/10 * * * *"
       //  print(jobPropertiesPropertyNode)
-      }
+      //}
     }
   } 
   //def hudson.model.JobProperty[] newProperties = hudson.model.JobProperty[]
