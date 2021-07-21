@@ -26,10 +26,14 @@ if (jobProperties) {
       //}
     }
   } 
+  
+  def view = jobProperties.getView().stream()
+    .filter(p -> !(p instanceof org.jenkinsci.plugins.workflow.multibranch.BranchJobProperty))
+  
   //def hudson.model.JobProperty[] newProperties = hudson.model.JobProperty[]
   //jobProperties.toArray(newProperties)
   //print(newProperties)
-  properties(jobProperties.getView())
+  properties(view)
 }
 
 //String cron_string = BRANCH_NAME == "master" ? "*/5 * * * *" : ""
