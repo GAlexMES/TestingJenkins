@@ -16,7 +16,7 @@ if (jobProperties) {
   jobProperties.each { property ->
     if(property instanceof org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty ){
       def triggerJobProperty = property as org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty
-      triggerJobProperty.getTriggers().each { triggerr ->
+      triggerJobProperty.getTriggers().each { trigger ->
         ptrint(trigger)
       }
       //print(property)
