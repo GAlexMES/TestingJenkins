@@ -10,8 +10,6 @@ if (currentJob) {
 jobProperties = currentJob.@properties
 }
 
-print(jobProperties)
-
 
 if (jobProperties) {
   jobProperties.each { property ->
