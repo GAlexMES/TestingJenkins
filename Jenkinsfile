@@ -16,8 +16,9 @@ if (jobProperties) {
     String xml = Items.XSTREAM2.toXML(property)
     def jobPropertiesPropertyNode = new XmlParser().parseText(xml)
     if(jobPropertiesPropertyNode.attributes().get("plugin").startsWith("workflow-job")){
-      def value = jobPropertiesPropertyNode.children().get(0).value().get(0) as hudson.triggers.TimerTrigger
-      print(value)
+      def hudson = jobPropertiesPropertyNode.children().get(0).value().get(0)
+      def valueArray = hudson.value().get(0).value() 
+      print(valueArray)
     }
   } 
   def Object[] newProperties = Object[]
