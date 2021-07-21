@@ -18,17 +18,11 @@ withEnv([
 
   String cron_string = BRANCH_NAME == "master" ? "*/5 * * * *" : ""
   if (jobProperties) {
-        configure { root ->
-        def properties = root / 'properties'
         jobProperties.each { property ->
           String xml = Items.XSTREAM2.toXML(property)
           def jobPropertiesPropertyNode = new XmlParser().parseText(xml)
-          properties << jobPropertiesPropertyNode
-        }
-        print(properties)
-        }
-
-        
+          print(jobPropertiesPropertyNode)
+        } 
     }
 
   properties([pipelineTriggers([cron(cron_string)])])
