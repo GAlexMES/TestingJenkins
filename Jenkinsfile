@@ -17,7 +17,10 @@ if (jobProperties) {
     def jobPropertiesPropertyNode = new XmlParser().parseText(xml)
     print(jobPropertiesPropertyNode)
   } 
-  properties(jobProperties.getView())
+  def newProperties = []
+  jobProperties.toArray(newProperties)
+  print(newProperties)
+  //properties(newProperties)
 }
 
 //String cron_string = BRANCH_NAME == "master" ? "*/5 * * * *" : ""
