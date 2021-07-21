@@ -15,7 +15,7 @@ if (jobProperties) {
   jobProperties.each { property ->
     String xml = Items.XSTREAM2.toXML(property)
     def jobPropertiesPropertyNode = new XmlParser().parseText(xml)
-    print(jobPropertiesPropertyNode)
+    println(jobPropertiesPropertyNode instanceof org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty)
   } 
   def Object[] newProperties = Object[]
   jobProperties.toArray(newProperties)
