@@ -17,7 +17,7 @@ if (jobProperties) {
     def jobPropertiesPropertyNode = new XmlParser().parseText(xml)
     print(jobPropertiesPropertyNode)
   } 
-  def Object[] newProperties = new Object[]
+  def Object[] newProperties = Object[]
   jobProperties.toArray(newProperties)
   print(newProperties)
   //properties(newProperties)
