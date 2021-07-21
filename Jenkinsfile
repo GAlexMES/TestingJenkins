@@ -14,7 +14,7 @@ print(jobProperties)
 String cron_string = BRANCH_NAME == "master" ? "*/5 * * * *" : ""
 if (jobProperties) {
  
-      def newProperties = root / 'properties'
+      def newProperties = 'multi/maste/properties'
       jobProperties.each { property ->
         String xml = Items.XSTREAM2.toXML(property)
         def jobPropertiesPropertyNode = new XmlParser().parseText(xml)
