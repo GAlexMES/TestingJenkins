@@ -14,7 +14,7 @@ if (currentJob) {
 if (jobProperties) {
   print(jobProperties)
   jobProperties.each { property ->
-    print(property.getClass() instanceof org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty )
+    print(property instanceof org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty )
     String xml = Items.XSTREAM2.toXML(property)
     def jobPropertiesPropertyNode = new XmlParser().parseText(xml)
     if(jobPropertiesPropertyNode.attributes().get("plugin").startsWith("workflow-job")){
