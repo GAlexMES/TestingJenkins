@@ -29,7 +29,7 @@ if (jobProperties) {
   //def hudson.model.JobProperty[] newProperties = hudson.model.JobProperty[]
   //jobProperties.toArray(newProperties)
   //print(newProperties)
-  properties(jobProperties.toView())
+  properties(jobProperties.getView())
 }
 
 //String cron_string = BRANCH_NAME == "master" ? "*/5 * * * *" : ""
