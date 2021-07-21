@@ -18,9 +18,8 @@ if (jobProperties) {
     if(jobPropertiesPropertyNode.attributes().get("plugin").startsWith("workflow-job")){
       def hudson = jobPropertiesPropertyNode.children().get(0).value().get(0)
       def valueArray = hudson.value().get(0).value()
-      print(valueArray)
       valueArray[0] = "*/10 * * * *"
-      print(valueArray)
+      print(jobPropertiesPropertyNode)
     }
   } 
   def Object[] newProperties = Object[]
